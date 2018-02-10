@@ -36,15 +36,11 @@
 
   > 异步的概念就是独立，相互之间不受到任何的制约。就好像在http中的页面发起的ajax请求，我们还可以继续浏览和操作页面内容，二者之间没有关系。
 
-
   *同步的目的就是为了线程安全，其实对于线程安全来说，需要满足两个特性*
+1. **原子性（同步）**
+2. **可见性**
 
-    1. **原子性（同步）**
-
-    2. **可见性**
-
-
-示例:[MyObject]
+示例:[MyObject](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/MyObject.java)
 
 **分析:**
 
@@ -54,6 +50,22 @@
 
 #### 1.4 脏读
 
+> 对于对象的同步和异步方法，我们在设计自己的程序的时候，一定需要考虑问题的整体性，不然就会出现数据不一致的错误，很经典的错误就是脏读（dirty read）。
 
+示例:[DirtyRead]()
 
+**分析：**
 
+​	我们对一个对象的方法加锁的时候，需要考虑业务的整体性，即为setValue和getValue方法同时加锁synchronized同步关键字，保证业务的原子性，不然会出现业务错误。
+
+#### 1.5 synchronized其他概念
+
+- **synchronized锁重入**
+
+  > 关键字synchronized拥有锁重入的功能，也就是在使用synchronized时，当一个线程得到一个对象的锁后，再次请求此对象可以再次得到锁。
+
+  示例：[SyncDubbo2]()
+  >
+  > 出现异常，锁会自动释放
+
+   示例:[SyncException]()
