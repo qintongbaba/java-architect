@@ -52,7 +52,7 @@
 
 > 对于对象的同步和异步方法，我们在设计自己的程序的时候，一定需要考虑问题的整体性，不然就会出现数据不一致的错误，很经典的错误就是脏读（dirty read）。
 
-示例:[DirtyRead]()
+示例:[DirtyRead](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/DirtyRead.java)
 
 **分析：**
 
@@ -64,7 +64,7 @@
 
   > 关键字synchronized拥有锁重入的功能，也就是在使用synchronized时，当一个线程得到一个对象的锁后，再次请求此对象可以再次得到锁。
 
-  示例：[SyncDubbo2]()
+  示例：[SyncDubbo1]()        [SyncDubbo2]()
   >
   > 出现异常，锁会自动释放
 
