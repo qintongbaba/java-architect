@@ -64,7 +64,7 @@
 
   > 关键字synchronized拥有锁重入的功能，也就是在使用synchronized时，当一个线程得到一个对象的锁后，再次请求此对象可以再次得到锁。
 
-  示例：[SyncDubbo1]()        [SyncDubbo2]()
+  示例：[SyncDubbo1](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncDubbo1.java)        [SyncDubbo2](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncDubbo2.java)
   >
   > 出现异常，锁会自动释放
 
