@@ -24,6 +24,8 @@ public class ListAdd2 {
 
         ListAdd2 list = new ListAdd2();
 
+
+        //当使用wait和notify一定需要配合synchronized关键子使用
         Object lock = new Object();
 
         Thread t1 = new Thread(() -> {
@@ -59,6 +61,8 @@ public class ListAdd2 {
             }
         }, "t2");
 
+
+        //需要先启动t2
         t2.start();
         t1.start();
     }

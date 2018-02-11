@@ -72,7 +72,7 @@
 
   **分析：**
 
-  	对于web应用程序，异常释放锁的情况，如果不及时处理，很可能对你的应用程序业务逻辑产生严重的错误，比如你现在执行队列任务，很多对象都去等待第一个对象正确执行完毕再去释放锁，但是第一个对象由于异常出现，导致业务逻辑没有正常结束完毕，就释放锁，那么可想而知后续的对象执行的都是错误的逻辑。所以这一点一定要引起注意，在编写代码的时候，一定要考虑周全。
+​	对于web应用程序，异常释放锁的情况，如果不及时处理，很可能对你的应用程序业务逻辑产生严重的错误，比如你现在执行队列任务，很多对象都去等待第一个对象正确执行完毕再去释放锁，但是第一个对象由于异常出现，导致业务逻辑没有正常结束完毕，就释放锁，那么可想而知后续的对象执行的都是错误的逻辑。所以这一点一定要引起注意，在编写代码的时候，一定要考虑周全。
 
 #### 1.6 synchronized代码块
 
@@ -116,6 +116,12 @@
 
 **2.wait方法释放锁，notify方法不释放锁**
 
-示例:[ListAdd1]()        [ListAdd2]()
+示例:[ListAdd1](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/communicate/ListAdd1.java)        [ListAdd2](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/communicate/ListAdd2.java)
+
+#### 2.2 使用wait和notify模拟Queue
+
+> 去模拟一个BlockingQueue:首先它是一个队列，并且支持阻塞的机制，阻塞的放入和得到数据。
+
+示例：[MyQueue]()
 
 ​	
