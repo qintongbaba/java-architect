@@ -78,19 +78,19 @@
 
 > 使用synchronized声明方法在某些情况下是有弊端的，比如A线程调用同步方法调用一个很长时间的任务，那么B线程就必须等待比较长时间才能执行，这样的情况下可以使用synchronized代码块去优化执行时间，也就是通常所说的减小锁粒度。
 
-示例: [Optimize]()
+示例: [Optimize](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/Optimize.java)
 
 > synchronized可以使用任意Object对象进行加锁，用法比较灵活
 
-示例: [ObjectLock]()
+示例: [ObjectLock](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/ObjectLock.java)
 
 > **特别注意:**不要使用String常量加锁，会出现死循环问题。
 
-示例:[StringLock]()
+示例:[StringLock](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/StringLock.java)
 
 >锁对象改变问题：当使用一个对象进行加锁的时候，要注意对象本身发生变化的时候，那么锁就不一样了。如果对象本身不发生变化，那么就依然为同步的，即使对象的属性发生变化也不影响。
 
-示例:[ModifyLock]()  
+示例:[ChangeLock]()        [ModifyLock]()  
 
 >死锁问题
 
