@@ -90,9 +90,18 @@
 
 >锁对象改变问题：当使用一个对象进行加锁的时候，要注意对象本身发生变化的时候，那么锁就不一样了。如果对象本身不发生变化，那么就依然为同步的，即使对象的属性发生变化也不影响。
 
-示例:[ChangeLock]()        [ModifyLock]()  
+示例:[ChangeLock](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/ChangeLock.java)        [ModifyLock](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/ModifyLock.java)  
 
 >死锁问题
 
-示例:[DeadLock]()
+示例:[DeadLock](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/DeadLock.java)
 
+#### 1.7 volatile关键字
+
+> volatile关键字:主要作用是使变量在多个线程之间可见
+
+示例:[RunThread]()
+
+**分析：**
+
+​	
