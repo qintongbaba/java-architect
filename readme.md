@@ -68,7 +68,7 @@
   >
   > 出现异常，锁会自动释放
 
-   示例:[SyncException]()
+   示例:[SyncException1](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncException1.java)      [SyncException2](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncException2.java)
 
   **分析：**
 
