@@ -30,11 +30,11 @@
 
 - **同步：synchronized** 
 
-  > 同步的概念就是共享，我们需要牢牢记住“共享”两字，如果不是为了共享资源，就没有必要进行同步。
+> 同步的概念就是共享，我们需要牢牢记住“共享”两字，如果不是为了共享资源，就没有必要进行同步。
 
 - **异步：asynchronized**
 
-  > 异步的概念就是独立，相互之间不受到任何的制约。就好像在http中的页面发起的ajax请求，我们还可以继续浏览和操作页面内容，二者之间没有关系。
+> 异步的概念就是独立，相互之间不受到任何的制约。就好像在http中的页面发起的ajax请求，我们还可以继续浏览和操作页面内容，二者之间没有关系。
 
   *同步的目的就是为了线程安全，其实对于线程安全来说，需要满足两个特性*
 1. **原子性（同步）**
@@ -62,14 +62,37 @@
 
 - **synchronized锁重入**
 
-  > 关键字synchronized拥有锁重入的功能，也就是在使用synchronized时，当一个线程得到一个对象的锁后，再次请求此对象可以再次得到锁。
+> 关键字synchronized拥有锁重入的功能，也就是在使用synchronized时，当一个线程得到一个对象的锁后，再次请求此对象可以再次得到锁。
 
-  示例：[SyncDubbo1](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncDubbo1.java)        [SyncDubbo2](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncDubbo2.java)
-  >
-  > 出现异常，锁会自动释放
+示例：[SyncDubbo1](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncDubbo1.java)        [SyncDubbo2](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncDubbo2.java)
 
-   示例:[SyncException1](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncException1.java)      [SyncException2](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncException2.java)
+>  出现异常，锁会自动释放
+
+示例:  [SyncException1](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncException1.java)      [SyncException2](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/SyncException2.java)
 
   **分析：**
 
-  ​	对于web应用程序，异常释放锁的情况，如果不及时处理，很可能对你的应用程序业务逻辑产生严重的错误，比如你现在执行队列任务，很多对象都去等待第一个对象正确执行完毕再去释放锁，但是第一个对象由于异常出现，导致业务逻辑没有正常结束完毕，就释放锁，那么可想而知后续的对象执行的都是错误的逻辑。所以这一点一定要引起注意，在编写代码的时候，一定要考虑周全。
+  	对于web应用程序，异常释放锁的情况，如果不及时处理，很可能对你的应用程序业务逻辑产生严重的错误，比如你现在执行队列任务，很多对象都去等待第一个对象正确执行完毕再去释放锁，但是第一个对象由于异常出现，导致业务逻辑没有正常结束完毕，就释放锁，那么可想而知后续的对象执行的都是错误的逻辑。所以这一点一定要引起注意，在编写代码的时候，一定要考虑周全。
+
+#### 1.6 synchronized代码块
+
+> 使用synchronized声明方法在某些情况下是有弊端的，比如A线程调用同步方法调用一个很长时间的任务，那么B线程就必须等待比较长时间才能执行，这样的情况下可以使用synchronized代码块去优化执行时间，也就是通常所说的减小锁粒度。
+
+示例: [Optimize]()
+
+> synchronized可以使用任意Object对象进行加锁，用法比较灵活
+
+示例: [ObjectLock]()
+
+> **特别注意:**不要使用String常量加锁，会出现死循环问题。
+
+示例:[StringLock]()
+
+>锁对象改变问题：当使用一个对象进行加锁的时候，要注意对象本身发生变化的时候，那么锁就不一样了。如果对象本身不发生变化，那么就依然为同步的，即使对象的属性发生变化也不影响。
+
+示例:[ModifyLock]()  
+
+>死锁问题
+
+示例:[DeadLock]()
+
