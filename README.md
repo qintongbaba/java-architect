@@ -100,8 +100,22 @@
 
 > volatile关键字:主要作用是使变量在多个线程之间可见
 
-示例:[RunThread]()
+示例:[RunThread](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/thread/RunThread.java)
 
 **分析：**
+
+### 二、线程之间的通信
+
+#### 2.1线程之间的通信
+
+> 线程之间通信概念：线程是操作系统中独立的个体，但是这些个体如果不经过特殊处理就不能成为一个整体，线程之间的通信就成为整体必用的方式之一。当线程存在通信指挥，系统间交互性会更加的强大，在提高CPU利用率的同时还会使开发人员对线程任务处理的过程中进行有效的把控与监督。
+
+**使用wait/notify方法实现线程间的通信。（注意这两个方法都试Object类的方法）**
+
+**1.wait和notify必须配合synchronized关键字使用**
+
+**2.wait方法释放锁，notify方法不释放锁**
+
+示例:[ListAdd1]()        [ListAdd2]()
 
 ​	
