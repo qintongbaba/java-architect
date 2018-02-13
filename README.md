@@ -122,6 +122,14 @@
 
 > 去模拟一个BlockingQueue:首先它是一个队列，并且支持阻塞的机制，阻塞的放入和得到数据。
 
-示例：[MyQueue]()
+示例：[MyQueue](https://github.com/qintongbaba/java-architect/blob/master/java-concurrent/src/main/java/org/wuqinghua/communicate/MyQueue.java)
+
+#### 2.3 ThreadLocal
+
+> ThreadLocal概念:线程局部变量，是一种多线程间并发访问变量的解决方案。与其synchronized等加锁方式不同，ThreadLocal完全不提供锁，而使用空间换时间的手段，为每个线程提供变量的独立副本，以保障线程安全。
+>
+> 从性能上说，ThreadLocal不具有绝对的优势，在并发不是很高的情况下，加锁的效率会更加好。但是在高并发量或者竞争激烈的场景下，使用ThreadLocal可以在一定程度上减少锁竞争。
+
+#### 2.4 单例&多线程
 
 ​	
