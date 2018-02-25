@@ -6,10 +6,7 @@
     <groupId>org.wuqinghua</groupId>
     <artifactId>java-concurrent</artifactId>
     <version>1.0.0</version>
-    <modules>
-        <module>../zookeeper</module>
-    </modules>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>java-concurrent</name>
     <url>http://maven.apache.org</url>
